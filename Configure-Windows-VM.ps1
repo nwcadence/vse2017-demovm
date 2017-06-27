@@ -25,8 +25,13 @@ $workloadParams = $workloadArgs.Split(" ")
 Start-Process $vs_Enterprise $workloadParams -Wait
 
 #Download screenshots
-$appInsightsImage = "https://github.com/nwcadence/vse2017-demo/raw/addSnapshotDebugging/Scenario%20Demos/VSE%20Productivity/DayInTheLife/images/appinsights-exceptions.png"
-$debugSnapshotImage = "https://github.com/nwcadence/vse2017-demo/raw/addSnapshotDebugging/Scenario%20Demos/VSE%20Productivity/DayInTheLife/images/debugsnapshot-portal.png"
+
+$snapshotFolder = "C:\SnapshotDebugging"
+
+New-Item $snapshotFolder -ItemType Directory
+
+$appInsightsImage = "https://github.com/nwcadence/vse2017-demovm/raw/master/partsunlimited-snapshot/appinsights-exceptions.png"
+$debugSnapshotImage = "https://github.com/nwcadence/vse2017-demovm/raw/master/partsunlimited-snapshot/debugsnapshot-portal.png"
 
 Invoke-WebRequest $appInsightsImage -OutFile "$($snapshotFolder)\appinsights-exceptions.png"
 
@@ -34,8 +39,8 @@ Invoke-WebRequest $debugSnapshotImage -OutFile "$($snapshotFolder)\debugsnapshot
 
 #Download PowerShell scripts
 
-$connectGitScript = "https://raw.githubusercontent.com/nwcadence/vse2017-demo/addArmTemplate/demovm/Connect-Git.ps1"
-$prepDemoScript = "https://raw.githubusercontent.com/nwcadence/vse2017-demo/addArmTemplate/demovm/Prep-Demo.ps1"
+$connectGitScript = "https://raw.githubusercontent.com/nwcadence/vse2017-demovm/master/Connect-Git.ps1"
+$prepDemoScript = "https://raw.githubusercontent.com/nwcadence/vse2017-demovm/master/Prep-Demo.ps1"
 $scriptsFolder = "C:\scripts"
 
 New-Item $scriptsFolder -ItemType Directory
@@ -60,14 +65,10 @@ refreshenv
 
 #Download snapshot for offline use
 
-$snapshotFolder = "C:\SnapshotDebugging"
-
-New-Item $snapshotFolder -ItemType Directory
-
 for ($i = 1; $i -le 7; $i++) {
 
     $snapshot = "partsunlimited-snapshot.zip.00$($i)"
-    $snapshotUrl = "https://github.com/nwcadence/vse2017-demo/raw/addArmTemplate/demovm/partsunlimited-snapshot/partsunlimited-snapshot.zip.00$($i)"
+    $snapshotUrl = "https://github.com/nwcadence/vse2017-demovm/raw/master/partsunlimited-snapshot/partsunlimited-snapshot.zip.00$($i)"
     Write-Host "Downloading partsunlimited-snapshot.zip.00$($i)"
     Invoke-WebRequest $snapshotUrl -OutFile "$($snapshotFolder)\$($snapshot)"
 }
