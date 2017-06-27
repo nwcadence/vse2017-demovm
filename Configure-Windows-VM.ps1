@@ -55,7 +55,6 @@ iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
 refreshenv
 
 # Install Chocolatey packages
-& choco install googlechrome -y
 & choco install firefox -y
 & choco install poshgit -y
 & choco install nodejs -y
@@ -82,6 +81,22 @@ $7zipParams = $7zipArgs.Split(" ")
 Start-Process $7zipPath $7zipParams -Wait
 
 Get-ChildItem -Path $snapshotFolder | Where-Object { $_.Extension -like "*.00*" } | foreach ($_) { Remove-Item $_.FullName }
+
+#Download Google Chrome
+
+$chromeUrl = "https://dl.google.com/tag/s/dl/chrome/install/googlechromestandaloneenterprise64.msi"
+
+$chrome = "$($temp)\chrome_installer.msi"
+
+Invoke-WebRequest -Uri $chromeUrl -OutFile $chrome
+
+$installer = "msiexec.exe"
+
+$chromeArgs = "/q /I $($chrome)"
+
+$chromeParams = $chromeArgs.Split(" ")
+
+Start-Process $installer $chromeParams -Wait
 
 Start-Sleep -Seconds 60
 Restart-Computer
