@@ -3,10 +3,10 @@
 This is the repository for Visual Studio 2017 Sales and Partner Enablement Resource for sellers and technical professionals. You will find sales and technical resources that will enable you to sell Visual Studio Enterprise 2017.
 
 There are two components for the demos:
-- Client Windows VM workstation that contains Visual Studio 2017 (15.2), Chrome, Firefox, Git, and other dependencies
+- Windows VM workstation (Windows Server 2016 Datacenter) that contains Visual Studio 2017 (15.2), Chrome, Firefox, Git, and other dependencies
 - Visual Studio Team Services project and Azure components for the deployment of the PartsUnlimited app
 
-This walkthrough will help you set up the client workstation (Azure Virtual Machine) that will use an Azure Resource Management (ARM) template and install/configure dependencies.
+This walkthrough will help you set up the workstation (Azure Virtual Machine) that will use an Azure Resource Management (ARM) template and install/configure dependencies.
 
 **Tasks**
 
