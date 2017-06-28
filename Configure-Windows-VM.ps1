@@ -98,5 +98,9 @@ $chromeParams = $chromeArgs.Split(" ")
 
 Start-Process $installer $chromeParams -Wait
 
+$defaultBrowserArgs = "--make-default-browser"
+
+& "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" $defaultBrowserArgs
+
 Start-Sleep -Seconds 60
 Restart-Computer
