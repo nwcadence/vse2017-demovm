@@ -1,13 +1,23 @@
 param
 (
-    [string]$workloads
+    [string]$workloads,
+    [string]$version
 )
 
 # Set PowerShell execution policy
 #Set-ExecutionPolicy RemoteSigned -Force
 
+if($version -eq "Preview")
+{
+    $vs_EnterpriseUrl = "https://www.visualstudio.com/thank-you-downloading-visual-studio/?ch=pre&sku=Enterprise&rel=15"
+}
+else
+{
+    $vs_EnterpriseUrl = "https://aka.ms/vs/15/release/vs_enterprise.exe"
+}
+    
 #Download Visual Studio Enterprise (latest)
-$vs_EnterpriseUrl = "https://aka.ms/vs/15/release/vs_enterprise.exe"
+
 
 $temp = "C:\Windows\Temp"
 $vs_Enterprise = "$($temp)\vs_Enterprise.exe"
