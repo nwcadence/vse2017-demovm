@@ -9,7 +9,7 @@ param
 
 if($version -eq "Preview")
 {
-    $vs_EnterpriseUrl = "https://www.visualstudio.com/thank-you-downloading-visual-studio/?ch=pre&sku=Enterprise&rel=15"
+    $vs_EnterpriseUrl = "https://aka.ms/vs/15/pre/vs_enterprise.exe"
 }
 else
 {
