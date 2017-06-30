@@ -20,7 +20,7 @@ else
 
 
 $temp = "C:\Windows\Temp"
-$vs_Enterprise = "$($temp)\vs_Enterprise.exe"
+$vs_Enterprise = "$($temp)\vs_Enterprise-$($version).exe"
 
 Invoke-WebRequest $vs_EnterpriseUrl -OutFile $vs_Enterprise
 
