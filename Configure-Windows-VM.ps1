@@ -14,6 +14,7 @@ if($version -eq "Preview")
 else
 {
     $vs_EnterpriseUrl = "https://aka.ms/vs/15/release/vs_enterprise.exe"
+	$version = "RTM"
 }
     
 #Download Visual Studio Enterprise (latest)
