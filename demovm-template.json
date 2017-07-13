@@ -12,6 +12,13 @@
             "type": "string",
             "defaultValue": "Standard_D2_v2"
         },
+        "visualStudioVersion": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify the version of Visual Studio to download, RTM or Preview."
+            },
+            "defaultValue": "RTM"
+        },
         "visualStudioWorkloads": {
             "type": "string",
             "metadata": {
@@ -102,7 +109,7 @@
                     "fileUris": [
                         "https://raw.githubusercontent.com/nwcadence/vse2017-demovm/master/Configure-Windows-VM.ps1"
                     ],
-                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ./Configure-Windows-VM.ps1', ' -workloads ', parameters('visualStudioWorkloads'))]"             
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ./Configure-Windows-VM.ps1', ' -workloads ', parameters('visualStudioWorkloads'), ' -version ', parameters('visualStudioVersion'))]"             
                 },
                 "protectedSettings": {}
             },

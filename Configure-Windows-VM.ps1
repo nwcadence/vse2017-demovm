@@ -1,16 +1,27 @@
 param
 (
-    [string]$workloads
+    [string]$workloads,
+    [string]$version
 )
 
 # Set PowerShell execution policy
 #Set-ExecutionPolicy RemoteSigned -Force
 
+if($version -eq "Preview")
+{
+    $vs_EnterpriseUrl = "https://aka.ms/vs/15/pre/vs_enterprise.exe"
+}
+else
+{
+    $vs_EnterpriseUrl = "https://aka.ms/vs/15/release/vs_enterprise.exe"
+	$version = "RTM"
+}
+    
 #Download Visual Studio Enterprise (latest)
-$vs_EnterpriseUrl = "https://aka.ms/vs/15/release/vs_enterprise.exe"
+
 
 $temp = "C:\Windows\Temp"
-$vs_Enterprise = "$($temp)\vs_Enterprise.exe"
+$vs_Enterprise = "$($temp)\vs_Enterprise-$($version).exe"
 
 Invoke-WebRequest $vs_EnterpriseUrl -OutFile $vs_Enterprise
 
