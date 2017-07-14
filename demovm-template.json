@@ -17,14 +17,14 @@
             "metadata": {
                 "description": "Specify the version of Visual Studio to download, RTM or Preview."
             },
-            "defaultValue": "RTM"
+            "defaultValue": "Preview"
         },
         "visualStudioWorkloads": {
             "type": "string",
             "metadata": {
                 "description": "Specify one or more workloads to install with Visual Studio separated by commas."
             },
-            "defaultValue": "Microsoft.VisualStudio.Component.TestTools.CodedUITest,Microsoft.VisualStudio.Component.TestTools.WebLoadTest,Microsoft.VisualStudio.Component.TestTools.Core,Microsoft.VisualStudio.Workload.Azure;includeRecommended,Microsoft.VisualStudio.Workload.NetWeb;includeRecommended;includeOptional,Microsoft.VisualStudio.Workload.Data;includeRecommended,Microsoft.VisualStudio.Workload.ManagedDesktop;includeRecommended;includeOptional,Microsoft.VisualStudio.Workload.NetCoreTools"
+            "defaultValue": "Microsoft.VisualStudio.Component.TestTools.Core,Microsoft.VisualStudio.Workload.Azure;includeRecommended,Microsoft.VisualStudio.Workload.NetWeb;includeRecommended;includeOptional,Microsoft.VisualStudio.Workload.Data;includeRecommended,Microsoft.VisualStudio.Workload.ManagedDesktop;includeRecommended;includeOptional,Microsoft.VisualStudio.Workload.NetCoreTools"
         },
         "adminUsername": {
             "type": "string",
@@ -107,7 +107,7 @@
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "fileUris": [
-                        "https://raw.githubusercontent.com/nwcadence/vse2017-demovm/master/Configure-Windows-VM.ps1"
+                        "https://raw.githubusercontent.com/nwcadence/vse2017-demovm/ready2017/Configure-Windows-VM.ps1"
                     ],
                     "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ./Configure-Windows-VM.ps1', ' -workloads ', parameters('visualStudioWorkloads'), ' -version ', parameters('visualStudioVersion'))]"             
                 },

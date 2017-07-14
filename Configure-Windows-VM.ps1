@@ -41,24 +41,15 @@ $snapshotFolder = "C:\SnapshotDebugging"
 
 New-Item $snapshotFolder -ItemType Directory
 
-$appInsightsImage = "https://github.com/nwcadence/vse2017-demovm/raw/master/partsunlimited-snapshot/appinsights-exceptions.png"
-$debugSnapshotImage = "https://github.com/nwcadence/vse2017-demovm/raw/master/partsunlimited-snapshot/debugsnapshot-portal.png"
+$appInsightsImage1 = "https://github.com/nwcadence/vse2017-demovm/raw/ready2017/bikesharing360-snapshot/appinsights-failedrequests.png"
+$appInsightsImage2 = "https://github.com/nwcadence/vse2017-demovm/raw/ready2017/bikesharing360-snapshot/appinsights-opendebugsnapshot.png"
+$downloadSnapshotImage = "https://github.com/nwcadence/vse2017-demovm/raw/ready2017/bikesharing360-snapshot/appinsights-downloadsnapshot.png"
 
-Invoke-WebRequest $appInsightsImage -OutFile "$($snapshotFolder)\appinsights-exceptions.png"
+Invoke-WebRequest $appInsightsImage1 -OutFile "$($snapshotFolder)\appinsights-failedrequests.png"
 
-Invoke-WebRequest $debugSnapshotImage -OutFile "$($snapshotFolder)\debugsnapshot-portal.png"
+Invoke-WebRequest $appInsightsImage2 -OutFile "$($snapshotFolder)\appinsights-opendebugsnapshot.png"
 
-#Download PowerShell scripts
-
-$connectGitScript = "https://raw.githubusercontent.com/nwcadence/vse2017-demovm/master/Connect-Git.ps1"
-$prepDemoScript = "https://raw.githubusercontent.com/nwcadence/vse2017-demovm/master/Prep-Demo.ps1"
-$scriptsFolder = "C:\scripts"
-
-New-Item $scriptsFolder -ItemType Directory
-
-Invoke-WebRequest $connectGitScript -OutFile "$($scriptsFolder)\Connect-Git.ps1"
-
-Invoke-WebRequest $prepDemoScript -OutFile "$($scriptsFolder)\Prep-Demo.ps1"
+Invoke-WebRequest $downloadSnapshotImage -OutFile "$($snapshotFolder)\appinsights-downloadsnapshot.png"
 
 # Install Chocolatey
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
@@ -75,17 +66,17 @@ refreshenv
 
 #Download snapshot for offline use
 
-for ($i = 1; $i -le 7; $i++) {
+for ($i = 1; $i -le 6; $i++) {
 
-    $snapshot = "partsunlimited-snapshot.zip.00$($i)"
-    $snapshotUrl = "https://github.com/nwcadence/vse2017-demovm/raw/master/partsunlimited-snapshot/partsunlimited-snapshot.zip.00$($i)"
-    Write-Host "Downloading partsunlimited-snapshot.zip.00$($i)"
+    $snapshot = "bikesharing360-snapshot.zip.00$($i)"
+    $snapshotUrl = "https://github.com/nwcadence/vse2017-demovm/raw/ready2017/bikesharing360-snapshot/bikesharing360-snapshot.zip.00$($i)"
+    Write-Host "Downloading bikesharing360-snapshot.zip.00$($i)"
     Invoke-WebRequest $snapshotUrl -OutFile "$($snapshotFolder)\$($snapshot)"
 }
 
 $7zipPath = "C:\Program Files\7-Zip\7z.exe"
 
-$7zipArgs = "e $($snapshotFolder)\partsunlimited-snapshot.zip.001 -o$($snapshotFolder)"
+$7zipArgs = "e $($snapshotFolder)\bikesharing360-snapshot.zip.001 -o$($snapshotFolder)"
 
 $7zipParams = $7zipArgs.Split(" ")
 
@@ -114,4 +105,4 @@ $defaultBrowserArgs = "--make-default-browser"
 & "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" $defaultBrowserArgs
 
 Start-Sleep -Seconds 60
-Restart-Computer
+Restart-Computer -Force
