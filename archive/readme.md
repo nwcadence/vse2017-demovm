@@ -1,4 +1,4 @@
-# Visual Studio 2017 Sales Enablement
+# Visual Studio 2017 Enterprise
 
 
 
@@ -17,9 +17,7 @@ Install-Module AzureRM -Force
 
 ## Visual Studio Team Services
 
-For VSTS, you can either 
-- Use the **[devopsconferences](https://devopsconferences.visualstudio.com/partsunlimited)** account but you will have only read-only access to the project. 
-- Choose to provision the project to your own VSTS account with **[VSTS Demo Data Generator](http://vstsdemogenerator.azurewebsites.net/Account/Verify?template=PartsUnlimited)**. 
+For VSTS, provision the project to your own VSTS account with **[VSTS Demo Data Generator](http://vstsdemogenerator.azurewebsites.net/Account/Verify?template=PartsUnlimited)**. 
 
 
 ## Creating a Demo VM in Azure

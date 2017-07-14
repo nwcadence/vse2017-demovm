@@ -1,6 +1,4 @@
-# Visual Studio 2017 Sales Enablement - Virtual Machine Setup
-
-This is the repository for Visual Studio 2017 Sales and Partner Enablement Resource for sellers and technical professionals. You will find sales and technical resources that will enable you to sell Visual Studio Enterprise 2017.
+# Visual Studio 2017 Enterprise - Virtual Machine Setup
 
 There are two components for the demos:
 - Windows VM workstation (Windows Server 2016 Datacenter) that contains Visual Studio 2017 (15.2), Chrome, Firefox, Git, and other dependencies
@@ -73,10 +71,7 @@ This walkthrough will help you set up the workstation (Azure Virtual Machine) th
 
 1. Create the VSTS project
 
-For VSTS, you can either
-
-- Use the devopsconferences account but you will have only read-only access to the project.
-- Choose to provision the project to your own VSTS account with [VSTS Demo Data Generator](http://vstsdemogenerator.azurewebsites.net/Account/Verify?template=PartsUnlimited).
+For VSTS, provision the project to your own VSTS account with [VSTS Demo Data Generator](http://vstsdemogenerator.azurewebsites.net/Account/Verify?template=PartsUnlimited).
 
 2. Keep track of the name of the VSTS account as well as the project.
 
